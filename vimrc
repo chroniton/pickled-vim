@@ -20,6 +20,10 @@
 
   " highlight the current line the cursor is on
   set cursorline
+  
+  " highlight the current column the cursor is on
+  "set cursorcolumn
+
   "sm:    flashes matching brackets or parentheses
   set showmatch
 
@@ -112,7 +116,7 @@
     " autoindent with two spaces, always expand tabs
     autocmd FileType ruby,eruby,yaml set autoindent shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType python set autoindent shiftwidth=4 softtabstop=4 expandtab
-    autocmd FileType javascript set autoindent shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType javascript,html,htmldjango,css set autoindent shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType vim set autoindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType cucumber set autoindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
     " markdown goodness
@@ -207,6 +211,7 @@
   nmap <leader>sh :Shell
 
   " Quick way to leave insert mode, without leaving homerow
+  " NOTE: Be careful when using a wireless keyboard.
   imap ii <Esc>
 
   " insert hashrocket, =>, with control-l
