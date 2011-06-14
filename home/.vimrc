@@ -23,7 +23,7 @@ silent! call pathogen#runtime_append_all_bundles()
 
   " highlight the current line the cursor is on
   set cursorline
-  
+
   " highlight the current column the cursor is on
   "set cursorcolumn
 
@@ -50,6 +50,9 @@ silent! call pathogen#runtime_append_all_bundles()
   " first tab shows all matches. next tab starts cycling through the matches
   set wildmenu
   set wildmode=list:longest,full
+
+  " don't complete from included files, on account of slow
+  set complete-=i
 
   " Display extra whitespace
   "set list listchars=tab:»·,trail:·
@@ -99,12 +102,12 @@ silent! call pathogen#runtime_append_all_bundles()
   let NERDTreeShowHidden = 1
   " map enter to activating a node
   let NERDTreeMapActivateNode='<CR>'
-  let NERDTreeIgnore=['\.git','\.DS_Store','\.pdf']
+  let NERDTreeIgnore=['\.git','\.DS_Store','\.pdf', '.beam']
 
   " limit number of results shown for performance
   let g:fuzzy_matching_limit=60
   " ignore stuff that can't be openned, and generated files
-  let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
+  let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;*.beam;vendor/**;coverage/**;tmp/**;rdoc/**"
   " increate the number of files scanned for very large projects
   let g:fuzzy_ceiling=20000
   " display relative path, instead of abbrevated path (lib/jeweler.rb vs
@@ -120,7 +123,7 @@ silent! call pathogen#runtime_append_all_bundles()
     autocmd FileType python set autoindent shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType javascript,html,htmldjango,css set autoindent shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType ruby,eruby,yaml set autoindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-    autocmd FileType javascript set autoindent shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType python set autoindent shiftwidth=4 softtabstop=4 expandtab
     autocmd FileType vim set autoindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType cucumber set autoindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
     au BufRead,BufNewFile *etc/nginx/* set ft=nginx 
@@ -132,6 +135,7 @@ silent! call pathogen#runtime_append_all_bundles()
     au BufRead,BufNewFile Capfile set ft=ruby                                   
     au BufRead,BufNewFile Thorfile set ft=ruby                                   
     au BufRead,BufNewFile *.god set ft=ruby  
+    au BufRead,BufNewFile .caprc set ft=ruby  
   augroup END
 
 
