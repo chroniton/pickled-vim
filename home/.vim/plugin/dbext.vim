@@ -322,9 +322,9 @@ if !hasmapto('<Plug>DBListColumn') && !hasmapto('<Leader>stcl')
                     \ :<C-U>exec 'DBListColumn "'.DB_getVisualBlock().'"'<CR>
     endif
 endif
-if !hasmapto('<Plug>DBHistory') && !hasmapto('<Leader>sh', 'n')
-    nmap <unique> <Leader>sh <Plug>DBHistory
-endif
+"if !hasmapto('<Plug>DBHistory') && !hasmapto('<Leader>sh', 'n')
+"    nmap <unique> <Leader>sh <Plug>DBHistory
+"endif
 if !hasmapto('<Plug>DBOrientationToggle') && !hasmapto('<Leader>so', 'n')
     nmap <unique> <Leader>so <Plug>DBOrientationToggle
 endif
